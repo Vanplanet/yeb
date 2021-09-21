@@ -1,7 +1,7 @@
 package com.saferide.server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.saferide.server.config.security.JwtUtilToken;
+import com.saferide.server.config.security.JwtTokenUtil;
 import com.saferide.server.mapper.AdminMapper;
 import com.saferide.server.pojo.Admin;
 import com.saferide.server.pojo.RespBean;
@@ -35,7 +35,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     @Autowired
     private PasswordEncoder passwordEncoder;                  //加密密码工具
     @Autowired
-    private JwtUtilToken jwtUtilToken;
+    private JwtTokenUtil jwtTokenUtil;
     @Value("${jwt.tokenHead}")
     private String tokenHead;
     @Autowired
@@ -69,7 +69,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         /**
          * 生成token
          */
-        String token = jwtUtilToken.generateToken(userDetails);     //用户正确，生成token
+        String token = jwtTokenUtil.generateToken(userDetails);     //用户正确，生成token
         Map<String,String> tokenMap = new HashMap<>();
         tokenMap.put("token",token);
         tokenMap.put("tokenHead",tokenHead);        //放入头部信息
