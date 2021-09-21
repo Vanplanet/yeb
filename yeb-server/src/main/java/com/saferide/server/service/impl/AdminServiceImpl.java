@@ -36,10 +36,11 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     private PasswordEncoder passwordEncoder;                  //加密密码工具
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
-    @Value("${jwt.tokenHead}")
-    private String tokenHead;
     @Autowired
     private AdminMapper adminMapper;
+    @Value("${jwt.tokenHead}")
+    private String tokenHead;
+
     /**
      * 登录之后返回token
      * @param username

@@ -1,5 +1,6 @@
 package com.saferide.server.pojo;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,6 +17,7 @@ import lombok.experimental.Accessors;
 @Data                                           //生成 get()、 set()、 toString()等方法
 @EqualsAndHashCode(callSuper = false)           //生成equals()和hashCode()方法
 @Accessors(chain = true)                        //配置getter和setter方法的生成结果
+@ApiModel(value = "AdminLogin对象", description = "")
 public class AdminLoginParam {
 
     @ApiModelProperty(value = "用户名",required = true)
